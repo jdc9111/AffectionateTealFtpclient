@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Procedure Note and Billing</h1>
+<br>
+<h4>History</h4>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
+  <label class="form-check-label" for="asaEmergency">
+    No history or family history of <b>Malignant hypothermia.</b>
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
+  <label class="form-check-label" for="asaEmergency">
+   No history of problems with previous anesthesia.
+  </label>
+</div>
+
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
+  <label class="form-check-label" for="asaEmergency">
+   No history of difficult inutbation.
+  </label>
+</div>
+<br>
+
+
+
+
+
+
+
+<div class="form-group">
+    <label for="complications"><h4>Examination</h4></label>
+    <textarea class="form-control" id="complications" rows="3"  placeholder="Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck."></textarea>
+  </div>
+
+<div class="form-group row">
+    <label for="procedure" class="col-sm-3 col-md-1 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Malampati
+</button></label>
+    <div class="col-sm-3 lg-1">
+      <select class="form-control" id="malampati">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+  </div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Malampati Score</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="https://owqo93fpiuc4633lp1zthz57-wpengine.netdna-ssl.com/wp-content/uploads/sites/11/2018/12/mallampatiscore_913672.jpg">
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<h4>Assessment</h4>
+<div class="form-group row">
+    <label for="procedure" class="col-sm-3 col-lg-1 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asaScore">
+  ASA Score
+</button></label>
+    <div class="col-sm-3">
+      <select class="form-control" id="malampati">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+  </div>
+
+<div class="modal fade" id="asaScore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Malampati Score</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="https://www.anesthesiologynews.com/aimages/2016/AN0116_026_table_a.jpg">
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="asaEmergency">
+  <label class="form-check-label" for="asaEmergency">
+    <b>Emergency?</b> (delay in treatment of the patient would lead to a significant increase in the threat to life or body part)
+  </label>
+</div>
+<br>
+
+<h4>Consent</h4>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
+  <label class="form-check-label" for="asaEmergency">
+    Informed verbal consent was obtained. Risks and benefits were discussed incluing risk of hyoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered. 
+  </label>
+</div>
+<br>
+
+<h4>Procedure</h4>
+
+<div class="form-group row">
+    <label for="procedure" class="col-md-1 col-sm-2 col-form-label">Procedure</label>
+    <div class="col-sm-4">
+      <select class="form-control" id="procedure">
+        <option>Skin with GA---------------------</option>
+        <option>SC abcess Z102</option>
+        <option>Perianal abcess Z105</option>
+        <option>Ischiorectal abcess Z107</option>
+        <option>FB removal Z115</option>
+        <option>Bartholin's I+D Z715</option>
+        <option>IM abscess/hematoma</option>
+        <option value="Z341">Chest tube insertion Z341</option>
+        <option value="Z866">FB ear removal Z866</option>
+        <option value="F009">Metacarpal # with close reduction F009</option>
+        <option value="F012">Bennett's # with closed reduction F013</option>
+        <option vlaue="D007">Carpal disl w closd reduction D007</option>
+
+
+      </select>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-row align-items-center">
+    <div class="col-md-2">
+      <label for="inlineFormInput">Start Time</label>
+      <input type="time" class="form-control mb-2" id="inlineFormInput" value="13:45:00">
+    </div>
+    <div class="col-md-2">
+      <label  for="inlineFormInputGroup">End Time</label>
+      <div class="input-group mb-2">
+        <input type="time" class="form-control" id="inlineFormInputGroup" value="14:45:00">
+      </div>
+    </div>
+  </div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="rtPresent" checked>
+  <label class="form-check-label" for="asaEmergency">Weekend or Holiday
+  </label>
+</div>
+<br>
+
+
+
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="rtPresent" checked>
+  <label class="form-check-label" for="asaEmergency">
+    Respiratory therapist was present.
+  </label>
+</div>
+<br>
+
+<div class="form-group">
+    <label for="medications">Medications given</label>
+    <textarea class="form-control" id="medicaitons" rows="3"  placeholder="None"></textarea>
+  </div>
+
+
+
+
+<div class="form-group">
+    <label for="complications">Complications</label>
+    <textarea class="form-control" id="complications" rows="3"  placeholder="None"></textarea>
+  </div>
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="desat" checked>
+  <label class="form-check-label" for="asaEmergency">
+    No hypoxia.  No desaturation.
+  </label>
+</div>
+<br>
+
+<h4>Discharge Criteria</h4>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
+  <label class="form-check-label" for="baseline">
+    At baseline mental status.  Alert and oriented.
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="normalVitals" checked>
+  <label class="form-check-label" for="normalVitals">
+    Vital signs normal
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
+  <label class="form-check-label" for="baseline">
+    Able to amublate safely.
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
+  <label class="form-check-label" for="baseline">
+    Discharged into the care of responsible adult.
+  </label>  
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
+  <label class="form-check-label" for="baseline">
+    Were advised not to operate heavy machinery, drive, use hot tubs or make important decisions for 24h.
+  </label>  
+</div>
+<br>
+
+<p>A project by <a href="www.erfaster.ca">ERFaster.ca</a></p>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

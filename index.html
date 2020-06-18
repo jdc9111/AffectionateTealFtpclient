@@ -10,62 +10,179 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
+<title>OHIP Sedation Billing</title>
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Procedure Note and Billing</h1>
 <br>
-<h4>History</h4>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
-  <label class="form-check-label" for="asaEmergency">
-    No history or family history of <b>Malignant hypothermia.</b>
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
-  <label class="form-check-label" for="asaEmergency">
-   No history of problems with previous anesthesia.
-  </label>
-</div>
+
+<form>
+
+<div class = "billing">
+  <h4>Billing Info</h4>
+  <!-- Procedure Code -->
+
+<select class="procedureInput custom-select col-sm-4">
+  <option selected>Procedure</option>
+  <option>SKIN with GA:</option>
+  <option value = "Z102">SC abcess Z102</option>
+  <option value = "Z105">Perianal abcess Z105</option>
+  <option value = "Z107">Ischiorectal abcess Z107</option>
+  <option value = "Z115">FB removal Z115</option>
+  <option value = "Z715">Bartholin's I+D Z715</option>
+  <option value = "Z227">IM abscess/hematoma</option>
+  <option></option>
+  <option>SUTURE:</option>
+  <option value = "Z176">Suture &lt 5 cm</option>
+  <option value = "Z175">Suture 5-10 cm</option>
+  <option value = "Z179">Suture 10.1-15 cm</option>
+  <option value = "Z176">Suture &gt 15 cm</option>
+  
+  
+  <option value = "Z177">Suture face/bleeder/layer &lt 5 cm</option>
+  <option value = "Z190">Suture face/bleeder/layer &lt 5-10 cm</option>
+  <option value = "Z192">Suture face/bleeder/layer &lt 5-10 cm</option>
+  <option value = "R024">Earlobe lac</option>
+  <option value = "R525">Repair muscle and skin</option>
+
+  <option value = "Z189">Zone 1 repair of digit</option>
+  <option value = "Z187">Complicated lac of face x 20mins</option>
+  <option value = "Z188">Complicated lac, not face x 20mins</option>
+  <option value = "R518">Excision of FB</option>
+
+  <option>CHEST:</option>
+  <option value = "Z341">Chest tube insertion Z341</option>
+  <option></option>
+  <option>ENT:</option>
+  <option value = "Z866">FB ear removal Z866</option>
+  <option></option>
+  <option>HAND:</option>
+  <option></option>
+  <option value = "F005">Phalanx w closed reduction</option>
+  <option value = "F006">Intraarticular MCP# w closed reduction</option>
+  <option value = "F009">Metacarpal # with close reduction F009</option>
+  <option value = "F012">Bennett's # with closed reduction F013</option>
+  <option value = "F102">Carpus with close reduction</option>
+  <option value = "D007">Carpal disl w closd reduction D007</option>
+  <option></option>
+  <option>WRIST/FOREARM/ELBOW</option>
+</select>   
+<br>
 
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
-  <label class="form-check-label" for="asaEmergency">
-   No history of difficult inutbation.
-  </label>
+<!-- Date input automatically pre-populates with today's date -->
+
+<div class="form-row">
+  <div class="col-sm-4">
+    <label for="date">Date</label>
+    <input type="date" class="billDate form-control" id="date" name="date">
+  </div>
+</div>
+
+<!-- start and end -->
+
+<div class="form-row">
+  <div class="col-sm-2">
+    <label>Start Time</label>
+    <input type="time" class="startTimeInput form-control" value="13:45:00">
+  </div>
+  <div class="col-sm-2">
+    <label>End Time</label>
+    <input type="time" class="endTimeInput form-control" value="15:45:00">
+  </div>
 </div>
 <br>
 
 
 
 
+<!-- Weekend or Holiday, automtically checks if weekend, not holdiay -->
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="weekend">
+<label class="form-check-label" for="weekend">Weekend
+</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="holiday" id="holiday">
+<label class="form-check-label" for="">Holiday
+</label>
+</div>
+
+
+
+
+<!-- night -->
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="night">
+<label class="form-check-label" for="asaEmergency">Night (24-7)
+</label>
+</div>
+
+<!-- called in -->
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="calledin" id="callin">
+  <label class="form-check-label" for="">Called in
+  </label>
+</div>
+<br>
+
+
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="bmi">
+<label class="form-check-label" for="bmi">BMI > 40
+</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="prone">
+<label class="form-check-label" for="prone">Prone position
+</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="prone">
+<label class="form-check-label" for="prone">Sitting > 60 degress
+</label>
+</div>
+
+
+</div> <!-- end of billing div -->
+<br>
+
+
+  <div class="form-group">
+    <label for="history"><h4>History</h4></label>
+    <textarea class="history form-control" id="hisotry" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
+  </div>
+  
 <div class="form-group">
-    <label for="complications"><h4>Examination</h4></label>
-    <textarea class="form-control" id="complications" rows="3"  placeholder="Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck."></textarea>
+    <label for="exam"><h4>Examination</h4></label>
+    <textarea class="exam form-control" id="exam" rows="3">Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck.</textarea>
   </div>
 
 <div class="form-group row">
-    <label for="procedure" class="col-sm-3 col-md-1 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <label for="malampati" class="col-sm-3 col-md-2 col-lg-2 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#malampatiModal">
   Malampati
 </button></label>
-    <div class="col-sm-3 lg-1">
-      <select class="form-control" id="malampati">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+    <div class="col-sm-2 lg-1">
+      <select class="malampati form-control" id="malampati">
+        <option value="Malampati 1">1</option>
+        <option value="Malampati 2">2</option>
+        <option value="Malampati 3">3</option>
+        <option value="Malampati 4">4</option>
       </select>
     </div>
   </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="malampatiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Malampati Score</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Malampati Score</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -78,20 +195,28 @@
   </div>
 </div>
 
+
+
 <h4>Assessment</h4>
+
+<!-- ASA Score -->
+
 <div class="form-group row">
-    <label for="procedure" class="col-sm-3 col-lg-1 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asaScore">
-  ASA Score
-</button></label>
-    <div class="col-sm-3">
-      <select class="form-control" id="malampati">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+    <label for="procedure" class="col-sm-3 col-md-2 col-lg-2 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asaScore">
+  ASA Score</button></label>
+
+    <div class="col-sm-2 lg-1">
+      <select class="asaScoreInput form-control" id="score">
+        <option value = "ASA Score 1">1</option>
+        <option value = "ASA Score 2">2</option>
+        <option value = "ASA Score 3">3 (+2 units)</option>
+        <option value = "ASA Score 4">4 (+10 units)</option>
+        <option value = "ASA Score 5">5 (+20 units)</option>
       </select>
     </div>
   </div>
+
+<!-- this is the modal for ASA Score -->
 
 <div class="modal fade" id="asaScore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -110,75 +235,39 @@
   </div>
 </div>
 
+<!-- ASA Emergency?-->
+
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="asaEmergency">
+  <input class="asaEmergencyInput form-check-input" type="checkbox" value="E" id="asaEmergency">
   <label class="form-check-label" for="asaEmergency">
-    <b>Emergency?</b> (delay in treatment of the patient would lead to a significant increase in the threat to life or body part)
-  </label>
-</div>
-<br>
-
-<h4>Consent</h4>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="risks" checked>
-  <label class="form-check-label" for="asaEmergency">
-    Informed verbal consent was obtained. Risks and benefits were discussed incluing risk of hyoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered. 
-  </label>
-</div>
-<br>
-
-<h4>Procedure</h4>
-
-<div class="form-group row">
-    <label for="procedure" class="col-md-1 col-sm-2 col-form-label">Procedure</label>
-    <div class="col-sm-4">
-      <select class="form-control" id="procedure">
-        <option>Skin with GA---------------------</option>
-        <option>SC abcess Z102</option>
-        <option>Perianal abcess Z105</option>
-        <option>Ischiorectal abcess Z107</option>
-        <option>FB removal Z115</option>
-        <option>Bartholin's I+D Z715</option>
-        <option>IM abscess/hematoma</option>
-        <option value="Z341">Chest tube insertion Z341</option>
-        <option value="Z866">FB ear removal Z866</option>
-        <option value="F009">Metacarpal # with close reduction F009</option>
-        <option value="F012">Bennett's # with closed reduction F013</option>
-        <option vlaue="D007">Carpal disl w closd reduction D007</option>
-
-
-      </select>
-    </div>
-  </div>
-
-
-
-
-  <div class="form-row align-items-center">
-    <div class="col-md-2">
-      <label for="inlineFormInput">Start Time</label>
-      <input type="time" class="form-control mb-2" id="inlineFormInput" value="13:45:00">
-    </div>
-    <div class="col-md-2">
-      <label  for="inlineFormInputGroup">End Time</label>
-      <div class="input-group mb-2">
-        <input type="time" class="form-control" id="inlineFormInputGroup" value="14:45:00">
-      </div>
-    </div>
-  </div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="rtPresent" checked>
-  <label class="form-check-label" for="asaEmergency">Weekend or Holiday
+    <b>Emergency?</b> (A delay in treatment of the patient would lead to a significant increase in the threat to life or body part) [+4 units]
   </label>
 </div>
 <br>
 
 
+<!-- Consent -->
+
+
+<div class="form-group">
+  <label for="consent"><h4>Consent</h4></label>
+  <textarea class="history form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed incluing risk of hyoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
+<br>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="rtPresent" checked>
+  <input class="form-check-input" type="checkbox" value="Respiratory Threrapist was present." id="rtPresent" checked>
   <label class="form-check-label" for="asaEmergency">
     Respiratory therapist was present.
   </label>
@@ -186,7 +275,7 @@
 <br>
 
 <div class="form-group">
-    <label for="medications">Medications given</label>
+    <label for="medications"><h4>Medications given</h4></label>
     <textarea class="form-control" id="medicaitons" rows="3"  placeholder="None"></textarea>
   </div>
 
@@ -194,51 +283,31 @@
 
 
 <div class="form-group">
-    <label for="complications">Complications</label>
-    <textarea class="form-control" id="complications" rows="3"  placeholder="None"></textarea>
+    <label for="complications"><h4>Complications</h4></label>
+    <textarea class="form-control" id="complications" rows="3">No hypoxia.  No desaturation</textarea>
   </div>
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="desat" checked>
-  <label class="form-check-label" for="asaEmergency">
-    No hypoxia.  No desaturation.
-  </label>
-</div>
-<br>
+  <div class="form-group">
+    <label for="Discharge"><h4>Discharge Assessment</h4></label>
+    <textarea class="exam form-control" id="discharge" rows="3"> At baseline mental status.  Vital signs normal.  Able to ambulate safely.  Discharged into the care of a responsible adult.  Was advised not to drive, operate heavy machinery, use hot tubs, make important decisions, sign legal documents for 24h.</textarea>
+  </div>
 
-<h4>Discharge Criteria</h4>
+
+
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
-  <label class="form-check-label" for="baseline">
-    At baseline mental status.  Alert and oriented.
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="normalVitals" checked>
-  <label class="form-check-label" for="normalVitals">
-    Vital signs normal
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
-  <label class="form-check-label" for="baseline">
-    Able to amublate safely.
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
-  <label class="form-check-label" for="baseline">
-    Discharged into the care of responsible adult.
-  </label>  
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="baseline" checked>
-  <label class="form-check-label" for="baseline">
-    Were advised not to operate heavy machinery, drive, use hot tubs or make important decisions for 24h.
+  <input class="form-check-input" type="checkbox" value="Was provided with written discharge instructions" id="baseline">
+  <label class="form-check-label" for="dischargeInstructions">
+    Was provided with written discharge instruction.
   </label>  
 </div>
 <br>
 
+<button class="enter btn btn-primary" type="submit">Do my billing!</button>
+</form>
+<br>
+
+
+<br>
 <p>A project by <a href="www.erfaster.ca">ERFaster.ca</a></p>
 
 
@@ -249,6 +318,8 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="./script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

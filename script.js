@@ -3,7 +3,7 @@ const butts = document.querySelector('.enter');
 
 const watchDate = document.querySelector('.billDate');
 
-const wacthStartTime = document.querySelector('.startTimeInput').value;
+const watchStartTime = document.querySelector('.startTimeInput');
 
 function setCurrentTime () {
     // set the default end time to current time and start time to 31 mins ago;
@@ -12,11 +12,22 @@ function setCurrentTime () {
     var endMins = today.getMinutes();
     console.log(endHour);
 
+    if (endHour < 10) {
+        endHour = "0"+endHour;
+    }
+
+    if (endMins < 10) {
+        endMins = "0"+endMins;
+    }
+
+    
     endingTime = endHour + ':' + endMins;
     console.log(endingTime);
 
+
     startMins = endMins - 31;
     startHour = endHour;
+
 
 
     if (startMins < 0) {
@@ -27,13 +38,24 @@ function setCurrentTime () {
 
     if (startMins < 10) {
         startMins = "0"+startMins
+        console.log(startMins);
     }
 
+    console.log(startHour);
+
+    if (startHour <10) {
+       startHour = "0"+startHour;
+       console.log(startHour);
+    };
+
+
+    
     startingTime = startHour + ":" + startMins;
     console.log(startingTime);
 
     document.querySelector('.startTimeInput').value = startingTime;
     document.querySelector('.endTimeInput').value = endingTime;
+    console.log(endingTime);
 
 };
 
@@ -65,14 +87,30 @@ function getDate() {
   };
 
 function isNight () {
-    console.log(wacthStartTime);
-}
+    var nightProcedure = document.querySelector('.startTimeInput').value
+    console.log(nightProcedure);
+    console.log('it works');
+
+    var startHour = nightProcedure.substring(0,2);
+    console.log(startHour);
+
+    if (startHour < 7) {
+        console.log('its a night');
+        document.getElementById("night").checked = true;
+    } else {
+    //} else if (startHour >= 7) {
+        console.log('its day time');
+        document.getElementById("night").checked = false;
+    }
+
+};
+
 
   
   window.onload = function() {
     getDate();
-    isNight();
     setCurrentTime();
+    isNight();
   };
 
 
@@ -137,7 +175,11 @@ function handleDate() {
 
 
 butts.addEventListener('click', handleClick);
+
 watchDate.addEventListener('change', handleDate);
+watchStartTime.addEventListener('change',isNight);
+
+
 
 
 

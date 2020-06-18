@@ -180,9 +180,14 @@ watchDate.addEventListener('change', handleDate);
 watchStartTime.addEventListener('change',isNight);
 
 
+//E400C Evening Premium
+//1700-2400hrs Mon to Fri, daytime or evenings on Sat Sun and Holidays. 
+//Adds 50% to each fee code.
+//E401C Night Premium 
+//0000-0700hrs 
+//Adds 75% to each fee code. 
 
-
-
+//https://www.dr-bill.ca/blog/anaesthesia-ohip-billing-codes-cheat-sheet#assessments
 
 
 

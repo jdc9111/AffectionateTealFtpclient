@@ -5,6 +5,12 @@ const watchDate = document.querySelector('.billDate');
 
 const watchStartTime = document.querySelector('.startTimeInput');
 
+const watchCode = document.querySelector('.procedureInput')
+
+console.log(watchCode);
+
+
+
 function setCurrentTime () {
     // set the default end time to current time and start time to 31 mins ago;
     var today = new Date ();
@@ -106,6 +112,15 @@ function isNight () {
 };
 
 
+function updateCode () {
+    console.log('updateCode');
+    
+
+    billingCode = watchCode.value +"C";
+    console.log(billingCode);
+    document.getElementById("billingCodes").value = billingCode;
+
+};
   
   window.onload = function() {
     getDate();
@@ -178,6 +193,8 @@ butts.addEventListener('click', handleClick);
 
 watchDate.addEventListener('change', handleDate);
 watchStartTime.addEventListener('change',isNight);
+watchCode.addEventListener('change', updateCode);
+
 
 
 //E400C Evening Premium

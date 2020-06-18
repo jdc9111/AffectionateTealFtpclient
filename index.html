@@ -17,10 +17,15 @@
     <h1>Procedure Note and Billing</h1>
 <br>
 
+
+
+
 <form>
 
-<div class = "billing">
+
   <h4>Billing Info</h4>
+  <div class = "card">
+    <div class = "card-body">
   <!-- Procedure Code -->
 
 <select class="procedureInput custom-select col-sm-4">
@@ -113,7 +118,6 @@
 
 
 
-
 <!-- night -->
 <div class="form-check">
 <input class="form-check-input" type="checkbox" value="true" id="night">
@@ -128,6 +132,33 @@
   </label>
 </div>
 <br>
+
+<!-- ASA Emergency?-->
+
+<div class="form-check">
+  <input class="asaEmergencyInput form-check-input" type="checkbox" value="E" id="asaEmergency">
+  <label class="form-check-label" for="asaEmergency">
+    <b>Emergency?</b> (A delay in treatment of the patient would lead to a significant increase in the threat to life or body part) [+4 units]
+  </label>
+</div>
+<br>
+
+<!-- ASA Score -->
+
+<div class="form-group row">
+  <label for="procedure" class="col-sm-3 col-md-2 col-lg-2 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asaScore">
+ASA Score</button></label>
+
+  <div class="col-sm-2 lg-1">
+    <select class="asaScoreInput form-control" id="score">
+      <option value = "ASA Score 1">1</option>
+      <option value = "ASA Score 2">2</option>
+      <option value = "ASA Score 3">3 (+2 units)</option>
+      <option value = "ASA Score 4">4 (+10 units)</option>
+      <option value = "ASA Score 5">5 (+20 units)</option>
+    </select>
+  </div>
+</div>
 
 
 
@@ -149,8 +180,8 @@
 </label>
 </div>
 
-
-</div> <!-- end of billing div -->
+</div> <!-- end of card body-->
+</div> <!--end of card-->
 <br>
 
 
@@ -199,22 +230,6 @@
 
 <h4>Assessment</h4>
 
-<!-- ASA Score -->
-
-<div class="form-group row">
-    <label for="procedure" class="col-sm-3 col-md-2 col-lg-2 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asaScore">
-  ASA Score</button></label>
-
-    <div class="col-sm-2 lg-1">
-      <select class="asaScoreInput form-control" id="score">
-        <option value = "ASA Score 1">1</option>
-        <option value = "ASA Score 2">2</option>
-        <option value = "ASA Score 3">3 (+2 units)</option>
-        <option value = "ASA Score 4">4 (+10 units)</option>
-        <option value = "ASA Score 5">5 (+20 units)</option>
-      </select>
-    </div>
-  </div>
 
 <!-- this is the modal for ASA Score -->
 
@@ -235,15 +250,7 @@
   </div>
 </div>
 
-<!-- ASA Emergency?-->
 
-<div class="form-check">
-  <input class="asaEmergencyInput form-check-input" type="checkbox" value="E" id="asaEmergency">
-  <label class="form-check-label" for="asaEmergency">
-    <b>Emergency?</b> (A delay in treatment of the patient would lead to a significant increase in the threat to life or body part) [+4 units]
-  </label>
-</div>
-<br>
 
 
 <!-- Consent -->

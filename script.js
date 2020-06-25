@@ -1,13 +1,18 @@
 
 const butts = document.querySelector('.enter');
+// watches enter button at bottom of form
 
 const watchDate = document.querySelector('.billDate');
 
 const watchStartTime = document.querySelector('.startTimeInput');
 
-const watchCode = document.querySelector('.procedureInput')
+const watchCode = document.querySelector('.procedureInput');
+// watches procude code inut
 
-console.log(watchCode);
+const watchWeekend = document.querySelector('.weekEndInput');
+const watchHoliday = document.querySelector('.holidayInput');
+const watchNight = document.querySelector('.nightInput');
+const watchEmergency = document.querySelector('.asaEmergencyInput');
 
 
 
@@ -26,15 +31,10 @@ function setCurrentTime () {
         endMins = "0"+endMins;
     }
 
-    
     endingTime = endHour + ':' + endMins;
-    console.log(endingTime);
-
 
     startMins = endMins - 31;
     startHour = endHour;
-
-
 
     if (startMins < 0) {
         startMins = startMins + 60
@@ -54,15 +54,12 @@ function setCurrentTime () {
        console.log(startHour);
     };
 
-
-    
     startingTime = startHour + ":" + startMins;
     console.log(startingTime);
 
     document.querySelector('.startTimeInput').value = startingTime;
     document.querySelector('.endTimeInput').value = endingTime;
     console.log(endingTime);
-
 };
 
 function getDate() {
@@ -90,6 +87,8 @@ function getDate() {
     var isWeekend = (day === 6) || (day === 0);
     document.getElementById("weekend").checked = isWeekend;
 
+    updateCode();
+
   };
 
 function isNight () {
@@ -109,16 +108,67 @@ function isNight () {
         document.getElementById("night").checked = false;
     }
 
+    updateCode();
+
+};
+
+
+function calculateUnits() {
+    units = 5
+    return units;
 };
 
 
 function updateCode () {
     console.log('updateCode');
+
+    
+    startTime = document.querySelector('.startTimeInput').value;
+    console.log (startTime);
+    startHour = startTime.substring(0,2);
+    console.log(startHour); 
+    weekend = document.getElementById("weekend").checked;
+    holiday = document.querySelector('.holidayInput').checked;
+    night = document.querySelector('.nightInput').checked;
+    emergency = document.querySelector('.asaEmergencyInput').checked;
     
 
-    billingCode = watchCode.value +"C";
-    console.log(billingCode);
-    document.getElementById("billingCodes").value = billingCode;
+
+    let bonus = "";
+    
+    if (startHour >= 17) {
+        console.log ('after 5pm');
+        bonus = "E400C 50% Evening";
+        console.log (bonus);
+    };
+
+    if (weekend) {
+       bonus = "E400C 50% evening or weekend";
+    };
+
+    if (holiday) {
+        bonus = "E400C 50% holiday";
+    };
+
+    if (night) {
+        bonus = "E401C 75% night"
+    };
+
+    if (emergency) {
+        bonus = bonus + ", E020C (Emergency)";
+    }
+
+
+
+
+    units = calculateUnits();
+    console.log(units);
+
+    console.log(watchCode.value);
+    ohipCode = watchCode.value +"C +"+units+" units, "+bonus;
+    console.log(ohipCode);
+
+    document.getElementById("billingCodes").value = ohipCode;
 
 };
   
@@ -127,8 +177,6 @@ function updateCode () {
     setCurrentTime();
     isNight();
   };
-
-
 
 
 function handleClick() {
@@ -164,9 +212,6 @@ function handleClick() {
 
     var today = new Date();
     console.log(today);
-    
-
-
 };
 
 function handleDate() {
@@ -183,17 +228,22 @@ function handleDate() {
     var isWeekend = (day === 6) || (day === 5);
     console.log (isWeekend);
     document.getElementById("weekend").checked = isWeekend;
-
-
 };
-
 
 
 butts.addEventListener('click', handleClick);
 
 watchDate.addEventListener('change', handleDate);
 watchStartTime.addEventListener('change',isNight);
+
 watchCode.addEventListener('change', updateCode);
+
+watchWeekend.addEventListener('change', updateCode);
+watchHoliday.addEventListener('change', updateCode);
+watchNight.addEventListener('change',updateCode);
+watchEmergency.addEventListener('change', updateCode);
+
+
 
 
 

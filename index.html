@@ -18,20 +18,16 @@
 <br>
 
 
-
-
 <form>
-
-
   <h4>Billing Info</h4>
   <div class = "card bg-light">
     <div class = "card-body">
   <!-- Procedure Code -->
 
-<select class="procedureInput custom-select col-sm-4">
-  <option selected>Procedure</option>
+<select class="procedureInput billingCodeComponent custom-select col-sm-4">
+  <option value = "this is a test" selected>Procedure</option>
   <option>SKIN with GA:</option>
-  <option value = "Z102">SC abcess Z102</option>
+  <option value = "Z102">Abscess or haematoma - sc - one Z102</option>
   <option value = "Z105">Perianal abcess Z105</option>
   <option value = "Z107">Ischiorectal abcess Z107</option>
   <option value = "Z115">FB removal Z115</option>
@@ -43,18 +39,16 @@
   <option value = "Z175">Suture 5-10 cm</option>
   <option value = "Z179">Suture 10.1-15 cm</option>
   <option value = "Z176">Suture &gt 15 cm</option>
-  
-  
   <option value = "Z177">Suture face/bleeder/layer &lt 5 cm</option>
   <option value = "Z190">Suture face/bleeder/layer &lt 5-10 cm</option>
   <option value = "Z192">Suture face/bleeder/layer &lt 5-10 cm</option>
   <option value = "R024">Earlobe lac</option>
   <option value = "R525">Repair muscle and skin</option>
-
   <option value = "Z189">Zone 1 repair of digit</option>
   <option value = "Z187">Complicated lac of face x 20mins</option>
   <option value = "Z188">Complicated lac, not face x 20mins</option>
   <option value = "R518">Excision of FB</option>
+  <option></option>
 
   <option>CHEST:</option>
   <option value = "Z341">Chest tube insertion Z341</option>
@@ -75,6 +69,8 @@
 </select>   
 <br>
 
+
+<!-- check codes here:  https://www.dr-bill.ca/ohip_billing_codes/search_codes?utf8=%E2%9C%93&q%5Bsearch_field_cont_all%5D=z102&commit=Search  -->
 
 <!-- Date input automatically pre-populates with today's date -->
 
@@ -105,14 +101,14 @@
 <!-- Weekend or Holiday, automtically checks if weekend, not holdiay -->
 
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="" id="weekend">
-<label class="form-check-label" for="weekend">Weekend
+<input class="weekEndInput form-check-input" type="checkbox" value="" id="weekend">
+<label class="weekEndInput form-check-label" for="weekend">Weekend
 </label>
 </div>
 
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="holiday" id="holiday">
-<label class="form-check-label" for="">Holiday
+<input class="holidayInput form-check-input" type="checkbox" value="" id="holiday">
+<label class="holidayInput form-check-label" for="">Holiday
 </label>
 </div>
 
@@ -120,8 +116,8 @@
 
 <!-- night -->
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="true" id="night">
-<label class="form-check-label" for="night">Night (24-7)
+<input class="nightInput form-check-input" type="checkbox" value="" id="night">
+<label class="nightInput form-check-label" for="night">Night (24-7)
 </label>
 </div>
 
@@ -137,8 +133,8 @@
 
 <div class="form-check">
   <input class="asaEmergencyInput form-check-input" type="checkbox" value="E" id="asaEmergency">
-  <label class="form-check-label" for="asaEmergency">
-    <b>Emergency?</b> (A delay in treatment of the patient would lead to a significant increase in the threat to life or body part) [+4 units]
+  <label class="asaEmergencyInput form-check-label" for="asaEmergency">
+    <b>Emergency?</b> (Delay in treatment would lead to significant increase in the threat to life or body part) [+4 units]
   </label>
 </div>
 <br>
@@ -164,9 +160,35 @@ ASA Score</button></label>
 
 <div class="form-check">
 <input class="form-check-input" type="checkbox" value="" id="bmi">
-<label class="form-check-label" for="bmi">BMI > 40
+<label class="form-check-label" for="bmi"><a href="#" data-toggle="modal" data-target="#bmiModal">BMI > 40</a>
 </label>
 </div>
+
+<!-- modal testing for BMI chart -->
+
+<!-- Modal -->
+<div class="modal fade" id="bmiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">BMI</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="./BMIChart.jpg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <div class="form-check">
 <input class="form-check-input" type="checkbox" value="" id="prone">
@@ -217,6 +239,8 @@ ASA Score</button></label>
     </div>
   </div>
 
+<!-- modal for Malampati Score -->
+
 <div class="modal fade" id="malampatiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -264,7 +288,7 @@ ASA Score</button></label>
 <!-- Consent -->
 <div class="form-group">
   <label for="consent"><h4>Consent</h4></label>
-  <textarea class="history form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed incluing risk of hyoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
+  <textarea class="history form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed including risk of hypoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
 <br>
 
 

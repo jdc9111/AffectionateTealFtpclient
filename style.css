@@ -10,4 +10,6 @@ body {
   margin-left: 1em;
 }
 
-
+a:link {
+  text-decoration: none;
+}

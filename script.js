@@ -13,6 +13,7 @@ const watchWeekend = document.querySelector('.weekEndInput');
 const watchHoliday = document.querySelector('.holidayInput');
 const watchNight = document.querySelector('.nightInput');
 const watchEmergency = document.querySelector('.asaEmergencyInput');
+const watchCallIn = document.querySelector('.callInInput');
 
 
 
@@ -131,11 +132,13 @@ function updateCode () {
     holiday = document.querySelector('.holidayInput').checked;
     night = document.querySelector('.nightInput').checked;
     emergency = document.querySelector('.asaEmergencyInput').checked;
+    calledIn = document.querySelector('.callInInput').checked;
     
 
 
     let bonus = "";
-    
+    let callInBonus ="";
+
     if (startHour >= 17) {
         console.log ('after 5pm');
         bonus = "E400C 50% Evening";
@@ -151,21 +154,26 @@ function updateCode () {
     };
 
     if (night) {
-        bonus = "E401C 75% night"
+        bonus = "E401C 75% night";
     };
 
     if (emergency) {
         bonus = bonus + ", E020C (Emergency)";
+    };
+
+    if (calledIn  && startHour >=17) {
+        callInBonus = ", C998C - Call in evenings $60.00";
+    };
+
+    if (calledIn && night) {
+        callInBonus = ", C999C - Call in nights $100.00";
     }
-
-
-
 
     units = calculateUnits();
     console.log(units);
 
     console.log(watchCode.value);
-    ohipCode = watchCode.value +"C +"+units+" units, "+bonus;
+    ohipCode = watchCode.value +"C +"+units+" units, " + bonus + callInBonus;
     console.log(ohipCode);
 
     document.getElementById("billingCodes").value = ohipCode;
@@ -242,6 +250,8 @@ watchWeekend.addEventListener('change', updateCode);
 watchHoliday.addEventListener('change', updateCode);
 watchNight.addEventListener('change',updateCode);
 watchEmergency.addEventListener('change', updateCode);
+watchCallIn.addEventListener('change',updateCode);
+
 
 
 
@@ -255,6 +265,9 @@ watchEmergency.addEventListener('change', updateCode);
 //Adds 75% to each fee code. 
 
 //https://www.dr-bill.ca/blog/anaesthesia-ohip-billing-codes-cheat-sheet#assessments
+
+//C998C - Call in evenings $60.00
+//C999C - Call in nights $100.00
 
 
 

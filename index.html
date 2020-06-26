@@ -133,11 +133,31 @@
 
 <div class="form-check">
   <input class="asaEmergencyInput form-check-input" type="checkbox" value="E" id="asaEmergency">
-  <label class="asaEmergencyInput form-check-label" for="asaEmergency">
-    <b>Emergency?</b> (Delay in treatment would lead to significant increase in the threat to life or body part) [+4 units]
+  <label class="asaEmergencyInput form-check-label" for="asaEmergency"><a href="#" data-toggle="modal" data-target="#emergencyModal">
+    <b>Emergency?</b></a> 
   </label>
 </div>
 <br>
+
+<!-- Modal -->
+<div class="modal fade" id="emergencyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Emergency</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        (Delay in treatment would lead to significant increase in the threat to life or body part) [+4 units]
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -155,8 +175,7 @@
     </select>
   </div>
 </div>
-
-
+<br>
 
 <div class="form-check">
 <input class="form-check-input" type="checkbox" value="" id="bmi">
@@ -269,7 +288,7 @@
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Malampati Score</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">ASA Score</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

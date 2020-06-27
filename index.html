@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Sedation Billing + Note</h1>
-    <p>A tool to help with your Emergency Department OHIP procedural sedation billing & documentation</p>
+    <p>A tool to help with your Emergency Department <b>OHIP</b> procedural sedation billing & documentation. Version 0.1</p>
 <br>
 
 
@@ -35,29 +35,29 @@
   <option value = "Z715">Bartholin's I+D Z715</option>
   <option value = "Z227">IM abscess/hematoma</option>
   <option></option>
-  <option style="font-weight:bold">Suture::</option>
-  <option value = "Z176">Suture &lt 5 cm</option>
-  <option value = "Z175">Suture 5-10 cm</option>
-  <option value = "Z179">Suture 10.1-15 cm</option>
-  <option value = "Z176">Suture &gt 15 cm</option>
-  <option value = "Z177">Suture face/bleeder/layer &lt 5 cm</option>
-  <option value = "Z190">Suture face/bleeder/layer &lt 5-10 cm</option>
-  <option value = "Z192">Suture face/bleeder/layer &lt 5-10 cm</option>
-  <option value = "R024">Earlobe lac</option>
-  <option value = "R525">Repair muscle and skin</option>
-  <option value = "Z189">Zone 1 repair of digit</option>
-  <option value = "Z187">Complicated lac of face x 20mins</option>
-  <option value = "Z188">Complicated lac, not face x 20mins</option>
-  <option value = "R518">Excision of FB</option>
+  <option id="bold">Suture:</option>
+  <option value = "Z176">Suture &lt 5 cm Z176</option>
+  <option value = "Z175">Suture 5-10 cm Z175</option>
+  <option value = "Z179">Suture 10.1-15 cm Z179</option>
+  <option value = "Z176">Suture &gt 15 cm Z176</option>
+  <option value = "Z177">Suture face/bleeder/layer &lt 5 cm Z177</option>
+  <option value = "Z190">Suture face/bleeder/layer &lt 5-10 cm Z190</option>
+  <option value = "Z192">Suture face/bleeder/layer &lt 5-10 cm Z192</option>
+  <option value = "R024">Earlobe lac R024</option>
+  <option value = "R525">Repair muscle and skin R525</option>
+  <option value = "Z189">Zone 1 repair of digit Z189</option>
+  <option value = "Z187">Complicated lac of face x 20mins Z187</option>
+  <option value = "Z188">Complicated lac, not face x 20mins Z188</option>
+  <option value = "R518">Excision of FB R518</option>
   <option></option>
 
-  <option>CHEST:</option>
+  <option id="bold">Chest:</option>
   <option value = "Z341">Chest tube insertion Z341</option>
   <option></option>
-  <option>ENT:</option>
+  <option id="bold">ENT:</option>
   <option value = "Z866">FB ear removal Z866</option>
   <option></option>
-  <option>HAND:</option>
+  <option id="bold">Hand:</option>
   <option value = "F005">Phalanx w closed reduction F005</option>
   <option value = "F006">Intraarticular MCP# w closed reduction</option>
   <option value = "F009">Metacarpal # with close reduction F009</option>
@@ -65,7 +65,7 @@
   <option value = "F102">Carpus with close reduction</option>
   <option value = "D007">Carpal disl w closd reduction D007</option>
   <option></option>
-  <option style="font-weight:bold">Wrist, Forearm, Elbow:</option>
+  <option id="bold">Wrist, Forearm, Elbow:</option>
   <option value = "F037">Epicondyle with closed reduction F037</option>
   <option value = "F039">Transcondylar with closed reduction F040</option>
   <option value = "F035">Olecranon with closed reduction</option>
@@ -74,7 +74,7 @@
   <option value = "F046" style="font-weight:bold">Distal Radius closed redution with GA</option>
   <option value = "D009">Disloc elbow D009</option>
   <option></option>
-  <option style="font-weight:bold">Humerus/Shoulder:</option><option value = "F048">Tuberosity with closed reduction F048</option>
+  <option id="bold">Humerus/Shoulder:</option><option value = "F048">Tuberosity with closed reduction F048</option>
   <option value = "F054">Humerus neck with closed reduction F054</option>
   <option value = "F051">Humerus neck with head dislocation & closed reduction F051</option>
   <option value = "F043">Humerus shaft with closed reduction F043</option>
@@ -239,7 +239,7 @@
 
 <div class="form-group">
   <label for="billingCodes"><h4>Billing Codes</h4></label>
-  <textarea class="billingCodes form-control" id="billingCodes" rows="3"></textarea>
+  <textarea class="billingCodes font-weight-bold form-control" id="billingCodes" rows="3"></textarea>
 </div>
 
 
@@ -251,22 +251,22 @@
 
   <div class="form-group">
     <label for="history"><h4>History</h4></label>
-    <textarea class="history form-control" id="history" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
+    <textarea class="note history form-control" id="history" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
   </div>
   
 <div class="form-group">
     <label for="exam"><h4>Examination</h4></label>
-    <textarea class="exam form-control" id="exam" rows="3">Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck.</textarea>
+    <textarea class="note exam form-control" id="exam" rows="3">Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck.</textarea>
   </div>
 
 
-<!-- ASA Score drop down -->
+<!-- Malampti Score  -->
 
 <div class="form-row">
   <div class ="col-sm-4 col-lg-2">
     <label for="exampleFormControlSelect1"><a href="#" data-toggle="modal" data-target="#malampatiModal">Malampati Score</a></label>
-    <select class="form-control custom-select" id="exampleFormControlSelect1">
-      <option value="Malampati 1">Malampati 1</option>
+    <select class="mote malampatiInput form-control custom-select" id="exampleFormControlSelect1">
+        <option value="Malampati 1">Malampati 1</option>
         <option value="Malampati 2">Malampati 2</option>
         <option value="Malampati 3">Malampati 3</option>
         <option value="Malampati 4">Malampati 4</option>
@@ -274,7 +274,6 @@
   </div>
 </div>
 <br>
-
 
 
 <!-- modal for Malampati Score -->
@@ -317,19 +316,15 @@
 </div>
 
 
-
-
 <!-- Consent -->
 <div class="form-group">
-  <label for="consent"><h4>Consent</h4></label>
-  <textarea class="history form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed including risk of hypoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
+  <label for="consentform"><h4>Consent</h4></label>
+  <textarea class="note consent form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed including risk of hypoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
 <br>
 
 
-
-
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="Respiratory Threrapist was present." id="rtPresent" checked>
+  <input class="note form-check-input" type="checkbox" value="Respiratory Threrapist was present." id="rtPresent" checked>
   <label class="form-check-label" for="asaEmergency">
     Respiratory therapist was present.
   </label>
@@ -338,26 +333,24 @@
 
 <div class="form-group">
     <label for="medications"><h4>Medications given</h4></label>
-    <textarea class="form-control" id="medicaitons" rows="3"  placeholder="None"></textarea>
+    <textarea class="note form-control" id="medicaitons" rows="3"  placeholder="None"></textarea>
   </div>
-
-
 
 
 <div class="form-group">
     <label for="complications"><h4>Complications</h4></label>
-    <textarea class="form-control" id="complications" rows="3">No hypoxia.  No desaturation</textarea>
+    <textarea class="note form-control" id="complications" rows="3">No hypoxia.  No desaturation</textarea>
   </div>
 
   <div class="form-group">
     <label for="Discharge"><h4>Discharge Assessment</h4></label>
-    <textarea class="exam form-control" id="discharge" rows="3">At baseline mental status.  Vital signs normal.  Able to ambulate safely.  Discharged into the care of a responsible adult.  Was advised not to drive, operate heavy machinery, use hot tubs, make important decisions, sign legal documents for 24h.</textarea>
+    <textarea class="note exam form-control" id="discharge" rows="3">At the time of discharge was at baseline mental status.  Vital signs normal.  Able to ambulate safely.  Discharged into the care of a responsible adult.  Was advised not to drive, operate heavy machinery, use hot tubs, make important decisions, sign legal documents for 24h.</textarea>
   </div>
 
 
 
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="Was provided with written discharge instructions" id="baseline">
+  <input class="note form-check-input" type="checkbox" value="Was provided with written discharge instructions." id="baseline">
   <label class="form-check-label" for="dischargeInstructions">
     Was provided with written discharge instruction.
   </label>  
@@ -370,7 +363,7 @@
 
 
 <br>
-<p>A project by <a href="http://www.erfaster.ca">ERFaster.ca</a></p>
+<p>A project by <a href="http://www.erfaster.ca">ERFaster.ca.</a> Supported by <img id="romp" src=./romp.png></p>
 
 
 

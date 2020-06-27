@@ -298,29 +298,36 @@ function handleClick() {
     const examFree = document.querySelector('.exam').value;
     console.log(examFree);
 
-    const malampatiClass = document.querySelector('.malampati').value;
+    const malampatiClass = document.querySelector('.malampatiInput').value;
     console.log(malampatiClass);
 
-    const asaScore = document.querySelector('.asaScoreInput').value;
-    console.log(asaScore);
-
-    const asaEmergency = document.querySelector('.asaEmergencyInput').value;
+    const asaEmergency = document.querySelector('.asaUnitsInput').value;
     console.log(asaEmergency);
 
-    const asaTotal = asaScore + asaEmergency
-    console.log(asaTotal);
+    const consent = document.querySelector('.consent').value;
+    
 
-    const procedure = document.querySelector('.procedureInput').value;
-    console.log(procedure);
+    const notes = document.querySelectorAll('.note');
+    console.log(notes);
 
-    const startTime = document.querySelector('.startTimeInput').value;
-    console.log(startTime);
+    const noteArr = [];
 
-    const endTime = document.querySelector('.endTimeInput').value;
-    console.log(endTime);
+    notes.forEach(function(note) {
+        noteArr.push(note.value);
+    })
 
-    var today = new Date();
-    console.log(today);
+    const note = noteArr.join("\n");
+    console.log(note)
+
+
+
+    navigator.clipboard.writeText(note).then(function() {
+        /* clipboard successfully set */
+      }, function() {
+        /* clipboard write failed */
+      });
+
+
 };
 
 function handleDate() {

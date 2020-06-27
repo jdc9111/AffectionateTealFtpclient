@@ -12,3 +12,12 @@ body {
 a:link {
   text-decoration: none;
 }
+
+#romp {
+  width: 125px;
+}
+
+#bold {
+  font-weight: bold;
+  
+}

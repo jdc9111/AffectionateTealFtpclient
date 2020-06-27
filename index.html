@@ -26,16 +26,16 @@
   <!-- Procedure Code -->
 
 <select class="procedureInput billingCodeComponent custom-select col-sm-4">
-  <option value = "procedure" selected>Procedure</option>
-  <option>SKIN with GA:</option>
-  <option value = "Z102">Abscess or haematoma - sc - one Z102</option>
-  <option value = "Z105">Perianal abcess Z105</option>
-  <option value = "Z107">Ischiorectal abcess Z107</option>
+  <option value = "xxxx" selected>Procedure</option>
+  <option style="font-weight:bold">Skin with GA:</option>
+  <option value = "Z102">Abscess/haematoma - sc - one Z102</option>
+  <option value = "Z105">Perianal abscess Z105</option>
+  <option value = "Z107">Ischiorectal abscess Z107</option>
   <option value = "Z115">FB removal Z115</option>
   <option value = "Z715">Bartholin's I+D Z715</option>
   <option value = "Z227">IM abscess/hematoma</option>
   <option></option>
-  <option>SUTURE:</option>
+  <option style="font-weight:bold">Suture::</option>
   <option value = "Z176">Suture &lt 5 cm</option>
   <option value = "Z175">Suture 5-10 cm</option>
   <option value = "Z179">Suture 10.1-15 cm</option>
@@ -58,15 +58,26 @@
   <option value = "Z866">FB ear removal Z866</option>
   <option></option>
   <option>HAND:</option>
-  <option></option>
-  <option value = "F005">Phalanx w closed reduction</option>
+  <option value = "F005">Phalanx w closed reduction F005</option>
   <option value = "F006">Intraarticular MCP# w closed reduction</option>
   <option value = "F009">Metacarpal # with close reduction F009</option>
   <option value = "F012">Bennett's # with closed reduction F013</option>
   <option value = "F102">Carpus with close reduction</option>
   <option value = "D007">Carpal disl w closd reduction D007</option>
   <option></option>
-  <option>WRIST/FOREARM/ELBOW</option>
+  <option style="font-weight:bold">Wrist, Forearm, Elbow:</option>
+  <option value = "F037">Epicondyle with closed reduction F037</option>
+  <option value = "F039">Transcondylar with closed reduction F040</option>
+  <option value = "F035">Olecranon with closed reduction</option>
+  <option value = "F025">Radius & Ulna with closed reduction F024</option>
+  <option value = "F032">Radius or Ulna with closed reduction F032</option>
+  <option value = "F046" style="font-weight:bold">Distal Radius closed redution with GA</option>
+  <option value = "D009">Disloc elbow D009</option>
+  <option></option>
+  <option style="font-weight:bold">Humerus/Shoulder:</option><option value = "F048">Tuberosity with closed reduction F048</option>
+  <option value = "F054">Humerus neck with closed reduction F054</option>
+  <option value = "F051">Humerus neck with head dislocation & closed reduction F051</option>
+  <option value = "F043">Humerus shaft with closed reduction F043</option>
 </select>   
 <br>
 
@@ -150,7 +161,7 @@
         </button>
       </div>
       <div class="modal-body">
-        (Delay in treatment would lead to significant increase in the threat to life or body part) [+4 units]
+        A delay in treatment would lead to significant increase in the threat to life or body part (+4 units)
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -164,21 +175,23 @@
 <!-- ASA Score drop down -->
 
 <div class="form-row">
-  <div class ="col-sm-4 col-lg-1">
+  <div class ="col-sm-4 col-lg-2">
     <label for="exampleFormControlSelect1"><a href="#" data-toggle="modal" data-target="#asaScore">ASA Score</a></label>
-    <select class="form-control custom-select" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3 (+2 units)</option>
-      <option>4 (+10 units)</option>
-      <option value ="+20 unints">5 (+20 units)</option>
+    <select class="asaUnitsInput form-control custom-select" id="exampleFormControlSelect1">
+      <option value = "">ASA 1</option>
+      <option value = "">ASA 2</option>
+      <option value = ", E022C (+2 units)">ASA 3 (+2 units)</option>
+      <option value = ", E017C (+10 units)">ASA 4 (+10 units)</option>
+      <option value = ", E016C (+20 units)">ASA 5 (+20 units)</option>
     </select>
   </div>
 </div>
 <br>
 
+
+
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="" id="bmi">
+<input class="bmiInput form-check-input" type="checkbox" value="" id="bmi">
 <label class="form-check-label" for="bmi"><a href="#" data-toggle="modal" data-target="#bmiModal">BMI > 40</a>
 </label>
 </div>
@@ -206,21 +219,23 @@
 </div>
 
 
-
-
+<!-- prone? checkbox -->
 
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="" id="prone">
+<input class="proneInput form-check-input" type="checkbox" value="" id="prone">
 <label class="form-check-label" for="prone">Prone position
 </label>
 </div>
 
+<!-- sitting? checkbox-->
+
 <div class="form-check">
-<input class="form-check-input" type="checkbox" value="" id="prone">
-<label class="form-check-label" for="prone">Sitting > 60 degress
+<input class="sittingInput form-check-input" type="checkbox" value="" id="sitting">
+<label class="form-check-label" for="sitting">Sitting > 60 degress
 </label>
 </div>
 <br>
+
 
 <div class="form-group">
   <label for="billingCodes"><h4>Billing Codes</h4></label>
@@ -236,7 +251,7 @@
 
   <div class="form-group">
     <label for="history"><h4>History</h4></label>
-    <textarea class="history form-control" id="hisotry" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
+    <textarea class="history form-control" id="history" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
   </div>
   
 <div class="form-group">
@@ -244,19 +259,23 @@
     <textarea class="exam form-control" id="exam" rows="3">Normal mouth opening.  Normal thryomental distance.  Normal mandibular protrusion/able to bite top lip.  Normal ROM neck.</textarea>
   </div>
 
-<div class="form-group row">
-    <label for="malampati" class="col-sm-3 col-md-2 col-lg-2 col-form-label"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#malampatiModal">
-  Malampati
-</button></label>
-    <div class="col-sm-2 lg-1">
-      <select class="malampati form-control" id="malampati">
-        <option value="Malampati 1">1</option>
-        <option value="Malampati 2">2</option>
-        <option value="Malampati 3">3</option>
-        <option value="Malampati 4">4</option>
-      </select>
-    </div>
+
+<!-- ASA Score drop down -->
+
+<div class="form-row">
+  <div class ="col-sm-4 col-lg-2">
+    <label for="exampleFormControlSelect1"><a href="#" data-toggle="modal" data-target="#malampatiModal">Malampati Score</a></label>
+    <select class="form-control custom-select" id="exampleFormControlSelect1">
+      <option value="Malampati 1">Malampati 1</option>
+        <option value="Malampati 2">Malampati 2</option>
+        <option value="Malampati 3">Malampati 3</option>
+        <option value="Malampati 4">Malampati 4</option>
+    </select>
   </div>
+</div>
+<br>
+
+
 
 <!-- modal for Malampati Score -->
 
@@ -276,10 +295,6 @@
     </div>
   </div>
 </div>
-
-
-
-<h4>Assessment</h4>
 
 
 <!-- this is the modal for ASA Score -->

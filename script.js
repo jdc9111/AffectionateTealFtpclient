@@ -5,6 +5,8 @@ const butts = document.querySelector('.enter');
 const watchDate = document.querySelector('.billDate');
 
 const watchStartTime = document.querySelector('.startTimeInput');
+const watchEndTime = document.querySelector('.endTimeInput');
+
 
 const watchCode = document.querySelector('.procedureInput');
 // watches procude code inut
@@ -14,6 +16,10 @@ const watchHoliday = document.querySelector('.holidayInput');
 const watchNight = document.querySelector('.nightInput');
 const watchEmergency = document.querySelector('.asaEmergencyInput');
 const watchCallIn = document.querySelector('.callInInput');
+const watchAsaUnits = document.querySelector('.asaUnitsInput');
+const watchBmiInput = document.querySelector('.bmiInput');
+const watchProneInput = document.querySelector('.proneInput');
+const watchSittingInput = document.querySelector('.sittingInput');
 
 
 
@@ -113,17 +119,90 @@ function isNight () {
 
 };
 
+function asaBonus() {
+    let asaBonus = "";
+    var asaCode = document.querySelector('.asaUnitsInput').value;
+
+    console.log(asaCode);
+
+    return asaCode;
+};
+
+
+
+
+
+
+function bmiBonus () {
+    let bmiBonus = "";
+    var bmiOverForty = document.querySelector('.bmiInput').checked;
+    if (bmiOverForty) {
+        bmiBonus = ", E010C (BMI >40 +2U) "
+    };
+
+    return bmiBonus;
+
+};
+
+function proneBonus () {
+    let proneBonus = "";
+    var prone = document.querySelector('.proneInput').checked;
+    if (prone) {
+        proneBonus = ", E011C (Prone position +4U)";
+    };
+
+    return proneBonus;
+
+};
+
+function sittingBonus () {
+    let sittingBonus = "";
+    var sitting = document.querySelector('.sittingInput').checked;
+    if (sitting) {
+        sittingBonus = ", E024C (Sitting >60° +4U)";
+    };
+
+    return sittingBonus;
+
+};
+
+
 
 function calculateUnits() {
-    units = 5
+    var startTime = document.querySelector('.startTimeInput').value;
+    console.log(startTime);
+
+    var endTime = document.querySelector('.endTimeInput').value;
+    console.log(endTime);
+
+    var start = startTime.split(":")
+    var end = endTime.split(":")
+
+    console.log(start);
+    console.log(start[1]);
+
+    startMins = parseInt(start[0]*60)+parseInt(start[1]);
+    console.log(startMins);
+
+    endMins = parseInt(end[0]*60)+parseInt(end[1]);
+    console.log(endMins);
+
+    if (endMins < startMins) {
+        endMins = endMins + 1440
+    };
+
+    units = Math.ceil((endMins - startMins)/15);
+    console.log(units);
+
     return units;
+    
+    
 };
 
 
 function updateCode () {
     console.log('updateCode');
 
-    
     startTime = document.querySelector('.startTimeInput').value;
     console.log (startTime);
     startHour = startTime.substring(0,2);
@@ -133,49 +212,71 @@ function updateCode () {
     night = document.querySelector('.nightInput').checked;
     emergency = document.querySelector('.asaEmergencyInput').checked;
     calledIn = document.querySelector('.callInInput').checked;
+
+
     
-
-
     let bonus = "";
     let callInBonus ="";
 
     if (startHour >= 17) {
         console.log ('after 5pm');
-        bonus = "E400C 50% Evening";
+        bonus = ", E400C (+50% evening)";
         console.log (bonus);
     };
 
     if (weekend) {
-       bonus = "E400C 50% evening or weekend";
+       bonus = ", E400C (+50% weekend)";
     };
 
     if (holiday) {
-        bonus = "E400C 50% holiday";
+        bonus = ", E400C (+50% holiday)";
     };
 
     if (night) {
-        bonus = "E401C 75% night";
+        bonus = ", E401C (+75% night)";
     };
 
     if (emergency) {
-        bonus = bonus + ", E020C (Emergency)";
+        bonus = bonus + ", E020C (Emergency, +4 units)";
     };
 
     if (calledIn  && startHour >=17) {
-        callInBonus = ", C998C - Call in evenings $60.00";
+        callInBonus = ", C998C (Call in evenings $60.00)";
+        console.log('called in evening');
     };
 
+    if (calledIn && weekend) {
+        callInBonus = ", C998C (Call in Weekend $60.00)";
+    };
+
+    if (calledIn && holiday) {
+        callInBonus = ", C998C (Call in Holiday $60.00);"
+    };
+
+
     if (calledIn && night) {
-        callInBonus = ", C999C - Call in nights $100.00";
-    }
+        callInBonus = ", C999C (Call in nights $100.00)";
+    };
+
 
     units = calculateUnits();
     console.log(units);
 
-    console.log(watchCode.value);
-    ohipCode = watchCode.value +"C +"+units+" units, " + bonus + callInBonus;
-    console.log(ohipCode);
+    bmiExtraUnits = bmiBonus();
+    console.log(bmiExtraUnits);
 
+    proneExtraUnits = proneBonus();
+    console.log(proneExtraUnits);
+
+    sittingExtraUnits = sittingBonus();
+    console.log(sittingExtraUnits);
+
+    asaExtraUnits = asaBonus();
+
+
+
+    ohipCode = watchCode.value +"C +"+units+" units" +bmiExtraUnits + asaExtraUnits + proneExtraUnits + sittingExtraUnits + bonus + callInBonus;
+    
     document.getElementById("billingCodes").value = ohipCode;
 
 };
@@ -243,6 +344,7 @@ butts.addEventListener('click', handleClick);
 
 watchDate.addEventListener('change', handleDate);
 watchStartTime.addEventListener('change',isNight);
+watchEndTime.addEventListener('change',updateCode);
 
 watchCode.addEventListener('change', updateCode);
 
@@ -251,9 +353,10 @@ watchHoliday.addEventListener('change', updateCode);
 watchNight.addEventListener('change',updateCode);
 watchEmergency.addEventListener('change', updateCode);
 watchCallIn.addEventListener('change',updateCode);
-
-
-
+watchAsaUnits.addEventListener('change', updateCode);
+watchBmiInput.addEventListener('change', updateCode);
+watchProneInput.addEventListener('change',updateCode);
+watchSittingInput.addEventListener('change',updateCode);
 
 
 

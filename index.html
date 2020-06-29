@@ -53,6 +53,7 @@
 
   <option id="bold">Chest:</option>
   <option value = "Z341">Chest tube insertion Z341</option>
+  <option vlaue = "Z437" id="bold">Cardioversion Electrical/Chemical Z437</option>
   <option></option>
   <option id="bold">ENT:</option>
   <option value = "Z866">FB ear removal Z866</option>
@@ -71,15 +72,26 @@
   <option value = "F035">Olecranon with closed reduction</option>
   <option value = "F025">Radius & Ulna with closed reduction F024</option>
   <option value = "F032">Radius or Ulna with closed reduction F032</option>
-  <option value = "F046" style="font-weight:bold">Distal Radius closed redution with GA</option>
+  <option value = "F046" style="font-weight:bold">Distal Radius closed redution with GA F046</option>
   <option value = "D009">Disloc elbow D009</option>
   <option></option>
   <option id="bold">Humerus/Shoulder:</option><option value = "F048">Tuberosity with closed reduction F048</option>
   <option value = "F054">Humerus neck with closed reduction F054</option>
   <option value = "F051">Humerus neck with head dislocation & closed reduction F051</option>
   <option value = "F043">Humerus shaft with closed reduction F043</option>
+  <option value = "F119">Scapula with closed reduction F120</option>
+  <option value = "F123">Sternum w closed recution F123</option>
+  <option value = "D025">AC with closed reduciton D025</option>
+  <option value = "D016" id="bold">Shoulder disloc with anesthesia D016</option>
+
 </select>   
-<br>
+
+
+
+
+
+
+
 
 
 <!-- check codes here:  https://www.dr-bill.ca/ohip_billing_codes/search_codes?utf8=%E2%9C%93&q%5Bsearch_field_cont_all%5D=z102&commit=Search  -->
@@ -239,7 +251,7 @@
 
 <div class="form-group">
   <label for="billingCodes"><h4>Billing Codes</h4></label>
-  <textarea class="billingCodes font-weight-bold form-control" id="billingCodes" rows="3"></textarea>
+  <textarea class="billingCodes font-weight-bold form-control" id="billingCodes" rows="4"></textarea>
 </div>
 
 
@@ -248,10 +260,12 @@
 </div> <!--end of card-->
 <br>
 
+<h3>Procedural Sedation note</h3><br>
+
 
   <div class="form-group">
-    <label for="history"><h4>History</h4></label>
-    <textarea class="note history form-control" id="history" rows="3">No history or family history of Malignant hypothermia. No history of problems with previous anesthetics.  No history of difficult intubation.</textarea>
+    <label for="history" class="note"><h4>History</h4></label>
+    <textarea class="note history form-control" id="history" rows="3">No history or family history of malignant hyperthermia. No problems with previous anesthetics.  No history of difficult intubation.</textarea>
   </div>
   
 <div class="form-group">
@@ -322,6 +336,7 @@
   <textarea class="note consent form-control" id="consent" rows="3">Informed verbal consent was obtained. Risks and benefits were discussed including risk of hypoxia, respiratory arrest, organ damage, parlaysis, brain damage.  All questions were answered.</textarea> 
 <br>
 
+<!-- RT prestent-->
 
 <div class="form-check">
   <input class="note form-check-input" type="checkbox" value="Respiratory Threrapist was present." id="rtPresent" checked>
@@ -339,7 +354,7 @@
 
 <div class="form-group">
     <label for="complications"><h4>Complications</h4></label>
-    <textarea class="note form-control" id="complications" rows="3">No hypoxia.  No desaturation</textarea>
+    <textarea class="note form-control" id="complications" rows="3">No hypoxia.  No desaturation.  No assisted ventilation requried.</textarea>
   </div>
 
   <div class="form-group">
@@ -363,13 +378,7 @@
 
 
 <br>
-<p>A project by <a href="http://www.erfaster.ca">ERFaster.ca.</a> Supported by <img id="romp" src=./romp.png></p>
-
-
-
-
-
-
+<p>A project by <a href="http://www.erfaster.ca">ERFaster.ca.</a> Supported by<a href="http://www.romponline.com"><img id="romp" src=./romp.png></a></p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
